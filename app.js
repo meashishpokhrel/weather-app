@@ -4,7 +4,7 @@ const url="http://api.openweathermap.org/data/2.5/weather?q=kathmandu&units=metr
 
 request({url: url}, (err,res) =>{
     const data=JSON.parse(res.body);    
-    console.log(data.main);
+    console.log("It is Currently " + data.main.temp + " degress." + " The sky has " + data.weather[0].description);
     
 });
 
