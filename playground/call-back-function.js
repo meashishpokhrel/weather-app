@@ -1,18 +1,18 @@
 
-// const geocode = (address, callback) => {
-//     setTimeout(() => {
-//         const data ={
-//             latitude: 5,
-//             longitue: 4
-//         }
-//         callback(data)
-//     },1000)
+const geocode = (address, callback) => {
+    setTimeout(() => {
+        const data ={
+            latitude: 5,
+            longitue: 4
+        }
+        callback(data)
+    },1000)
 
-// }
+}
 
-// geocode("ktm", (data) => {
-//     console.log(data)
-// })
+geocode("ktm", (data) => {
+    console.log(data)
+})
 
 //
 // Goal: Mess around with the callback pattern
