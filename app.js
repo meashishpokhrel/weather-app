@@ -8,22 +8,23 @@ const forecast =require("./utils/forecast")
 //  const latlonkey ="pk.eyJ1IjoiMGJvbHRhcjEiLCJhIjoiY2tiOTdrcmR0MDVmMTJxcGdwaWxtb3o1eiJ9.8wUyHTYH6hYTP-BzHuC9Sw"
 
 const location = process.argv[2]
+// const  = geocode
 
 if (!location){
     console.log("Please Provide the address");
 }
 else{
-    geocode(location, (err,geocodeData) => {
+    geocode(location, (err,{latitude, longitude, location}) => {
         if (err){        
             return console.log(err)
         }
-        forecast(geocodeData.latitude,geocodeData.longitude, (err,forecastData) =>{
+        forecast(latitude,longitude, (err,forecastData) =>{
     
             if (err){
                 return console.log(err);
             }
     
-            console.log(geocodeData.location)
+            console.log(location)
             console.log(forecastData)   
         })
     })
