@@ -5,17 +5,27 @@ const forecast =require("./utils/forecast")
 //For another API (Open Weather)
 //URL = api.openweathermap.org/data/2.5/weather?q=kathmandu&units=metric&appid=5c66a5798520d0130d3d372259a826cf
 //console.log(data.main.temp)
-
-
-//FOrecast
-forecast(27.17,85.36, (err,data) =>{
-    console.log(err)
-    console.log(data)   
-})
-//Geocoding
 //  const latlonkey ="pk.eyJ1IjoiMGJvbHRhcjEiLCJhIjoiY2tiOTdrcmR0MDVmMTJxcGdwaWxtb3o1eiJ9.8wUyHTYH6hYTP-BzHuC9Sw"
-geocode("Mumbai", (err,data) => {
-    console.log("Error",err)
-    console.log("Data-->",data)
+
+const location = process.argv[2]
+
+if (!location){
+    console.log("Please Provide the address");
+}
+else{
+    geocode(location, (err,geocodeData) => {
+        if (err){        
+            return console.log(err)
+        }
+        forecast(geocodeData.latitude,geocodeData.longitude, (err,forecastData) =>{
     
-})
+            if (err){
+                return console.log(err);
+            }
+    
+            console.log(geocodeData.location)
+            console.log(forecastData)   
+        })
+    })
+}
+
