@@ -83,6 +83,8 @@ app.get("/products", (req,res) => {
     })
 })
 
+//* deontes except those which are determined/given..
+
 app.get( '/help/*', (req,res) => {
     res.render("error",{
         title: "404 Page Error",
@@ -100,5 +102,5 @@ app.get("*", (req,res) => {
 })
 
 app.listen(port, () => {
-    console.log("Server Started on "+ port);
+    console.log("Server Started on: "+ port);
 })
