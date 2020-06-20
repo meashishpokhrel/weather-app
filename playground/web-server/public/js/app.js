@@ -4,6 +4,10 @@ console.log("This is javscript from public.")
 
 const searchButton = document.querySelector("form")
 const searchInput = document.querySelector("input")
+const msgOne = document.querySelector("#msg-1")
+const msgTwo = document.querySelector("#msg-2")
+
+
 
 searchButton.addEventListener('submit', (e)=>{
     e.preventDefault()
@@ -11,11 +15,11 @@ searchButton.addEventListener('submit', (e)=>{
     fetch("http://localhost:3000/weather?address=" + location).then((res) => {
     res.json().then((data) => {
         if(data.err){
-            console.log(data.err)
+            msgOne.textContent = data.err
         }
         else{
-            console.log(data.location)
-            console.log(data.forecast)
+            msgOne.textContent =data.location
+            msgTwo.textContent =data.forecast
         }
         
     })
