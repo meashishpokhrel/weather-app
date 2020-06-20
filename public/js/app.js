@@ -12,7 +12,7 @@ const msgTwo = document.querySelector("#msg-2")
 searchButton.addEventListener('submit', (e)=>{
     e.preventDefault()
     const location = searchInput.value
-    fetch("http://localhost:3000/weather?address=" + location).then((res) => {
+    fetch("/weather?address=" + location).then((res) => {
     res.json().then((data) => {
         if(data.err){
             msgOne.textContent = data.err
