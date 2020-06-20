@@ -1,12 +1,14 @@
 console.log("This is javscript from public.")
 
-fetch("http://puzzle.mead.io/puzzle").then((res) => {
-    res.json().then ((data) =>{
-        console.log(data);  
-    })  
-})
 
-fetch("http://localhost:3000/weather?address=kathmandu").then((res) => {
+
+const searchButton = document.querySelector("form")
+const searchInput = document.querySelector("input")
+
+searchButton.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    const location = searchInput.value
+    fetch("http://localhost:3000/weather?address=" + location).then((res) => {
     res.json().then((data) => {
         if(data.err){
             console.log(data.err)
@@ -18,3 +20,6 @@ fetch("http://localhost:3000/weather?address=kathmandu").then((res) => {
         
     })
 })
+})
+
+
