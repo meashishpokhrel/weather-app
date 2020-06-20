@@ -11,6 +11,9 @@ const msgTwo = document.querySelector("#msg-2")
 
 searchButton.addEventListener('submit', (e)=>{
     e.preventDefault()
+
+    msgOne.textContent = "Loading..."
+    msgTwo.textContent = ""
     const location = searchInput.value
     fetch("/weather?address=" + location).then((res) => {
     res.json().then((data) => {
