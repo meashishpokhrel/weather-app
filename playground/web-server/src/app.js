@@ -41,9 +41,29 @@ app.get("/help", (req,res) => {
 })
 
 app.get("/weather", (req,res)=> {
+    if (!req.query.address){
+        return res.send({
+            Error: "You must enter the address!!"
+        })
+    }
+
     res.send({
         forecast: "Cloudy",
-        location: "KTM"
+        Location: "KTM",
+        Address: req.query.address 
+    })
+})
+
+app.get("/products", (req,res) => {
+    if (!req.query.search) {
+        return res.send({
+            Error: "please provide the location term"
+        })
+    }
+    console.log(req.query.search)
+    
+    res.send({
+        products: []
     })
 })
 
