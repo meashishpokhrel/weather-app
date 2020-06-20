@@ -11,3 +11,7 @@ real case. Now we take the callback and call the callback with the value that we
 Template Engine...
 1. We will use template engine to make dynamic pages.
 We will use Handle Bars.
+
+..Templates handle Bars
+when saving the partials it wont be saved so use 
+nodemon src/app.js -e js,hbs
